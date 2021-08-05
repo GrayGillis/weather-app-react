@@ -8,9 +8,7 @@
   opacity: .75;
 }
 
-.the_form {
-  display: flex;
-  align-items: center;
-  text-align: center;
-  justify-content: center;
+.header {
+  margin-top: 20px;
+  padding-bottom: 30px; 
 }

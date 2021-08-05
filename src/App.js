@@ -3,12 +3,13 @@ import './App.css';
 import Header from './Header';
 
 // web api for city weather
+// OpenWeatherApp -> get key
 const url = '';
 
 const getWeatherInfo = async () => {
-  const response = await fetch(url);
-  const data = await response.json();
-  return data;
+  // const response = await fetch(url);
+  // const data = await response.json();
+  // return data;
 }
 
 function App() {

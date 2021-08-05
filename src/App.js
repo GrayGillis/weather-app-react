@@ -8,7 +8,7 @@ const api = {
 }
 
 const getWeatherInfo = async () => {
-  const response = await fetch(url);
+  const response = await fetch(api.url);
   const data = await response.json();
   console.log(data);
   return data;
@@ -25,8 +25,7 @@ function App() {
   return (
     <form className="the-form"> 
       <Header/>
-      <div className="App">
-        
+      <div className="app">
         <input type="text" name="weather" id="weather-text"/>
         <button className="btn" onClick={getWeatherInfo}>Submit</button>
       </div> 

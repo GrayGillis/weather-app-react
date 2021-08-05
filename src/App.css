@@ -16,8 +16,6 @@
   padding-bottom: 35px;
 }
 
-/* not working here */
-.the-form {
-  background-color: crimson;
-  border: cyan;
+.app {
+  color: black;
 }

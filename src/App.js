@@ -14,7 +14,7 @@ const getWeatherInfo = async () => {
 
 function App() {
   
-   // will be for displaying the city's weather
+  // will be for displaying the city's weather
   const [cityWeather, setCityWeather] = useState([]);
 
   useEffect(() => {
@@ -25,7 +25,7 @@ function App() {
     <form className="the-form"> 
       <Header/>
       <div className="App">
-        <input type="text" name="weather" id="weather-text"      placeholder="Enter the city name"/>
+        <input type="text" name="weather" id="weather-text"/>
         <button className="btn" onClick={getWeatherInfo}>Submit</button>
       </div> 
     </form>

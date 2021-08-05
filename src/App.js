@@ -1,24 +1,33 @@
-import logo from './logo.svg';
+import React, {useState, useEffect} from 'react'
 import './App.css';
+import Header from './Header';
+
+// web api for city weather
+const url = '';
+
+const getWeatherInfo = async () => {
+  const response = await fetch(url);
+  const data = await response.json();
+  return data;
+}
 
 function App() {
+  
+   // will be for displaying the city's weather
+  const [cityWeather, setCityWeather] = useState([]);
+
+  useEffect(() => {
+  
+  }, [])
+  
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div> 
+    <form className="the-form"> 
+      <Header/>
+      <div className="App">
+        <input type="text" name="weather" id="weather-text"      placeholder="Enter the city name"/>
+        <button className="btn" onClick={getWeatherInfo}>Submit</button>
+      </div> 
+    </form>
   );
 }
 

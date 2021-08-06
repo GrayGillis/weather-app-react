@@ -1,15 +1,3 @@
-// import React from 'react';
-// import ReactDOM from 'react-dom';
-// import './index.css';
-// import App from './App';
-
-// ReactDOM.render(
-//   <React.StrictMode>
-//     <App />
-//   </React.StrictMode>,
-//   document.getElementById('root')
-// );
-
 import React, { useState } from "react";
 import { render } from "react-dom";
 import axios from "axios";
@@ -29,7 +17,7 @@ const ReactWeatherApp = () => {
   const [description, setDescription] = useState('');
   
   const getWeatherInfo = (city, country) => {
-     axios({
+    axios({
       method: "GET",
       url: `${api.url}weather?q=${city},${country}&APPID=${api.key}`,
     })

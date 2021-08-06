@@ -6,7 +6,7 @@ import Header from "./Header";
 
 const api = {
   key: '650398dcf7dcf463b2c433c49bed5580',
-  url: 'http://api.openweathermap.org/data/2.5/'
+  url: 'https://api.openweathermap.org/data/2.5/'
 }
 
 const ReactWeatherApp = () => {

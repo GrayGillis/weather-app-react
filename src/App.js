@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import axios from "axios";
 import './App.css';
 import Header from './Header';
 
@@ -8,26 +9,34 @@ const api = {
 }
 
 function App() {
-  const [temperature, setTemperature] = useState('');
+  const [temperatureFah, setTemperatureFah] = useState('');
+  const [temperatureCel, setTemperatureCel] = useState('');
   const [city, setCity] = useState('London');
   const [country, setCountry] = useState('UK');
-  const [desc, setDesc] = useState('');
+  const [description, setDescription] = useState('');
   
   // this needs work
-  const getWeatherInfo = async (city, country) => {
-  const response = await fetch(api.url + 'weather?q=' + city + ',' + country + '&APPID=' + api.key);
-  const dataResult = await response.json();
-  console.log(dataResult);
+  const getWeatherInfo = (city, country) => {
+    console.log('hi');
+     axios({
+      method: "GET",
+      url: `${api.url}weather?q=${city},${country}&APPID=${api.key}`,
+    })
+      .then((res) => {
+        console.log(res.data.main.temp);
+        // Kelvin to Fahrenheit
+        setTemperatureFah((res.data.main.temp - 273.15) * 1.8 + 32);
 
-  // Kelvin to Fahrenheit
-  // setTemperature((response.data.main.temp - 273.15) * 1.8 + 32);
+        // Kelvin to Celsius
+        setTemperatureCel(res.data.main.temp - 273.15);
 
-  // Kelvin to Celsius
-  setTemperature(response.data.main.temp - 273.15);
-  setDesc(response.dataResult.weather[0].main);
-
-  return dataResult;
-}
+        console.log(res.data);
+        setDescription(res.data.weather[0].main);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  }
   
   return (
     <form className="the-form"> 
@@ -35,33 +44,17 @@ function App() {
       <div className="main-div">
         {new Date().toLocaleString()}<br />
         {city} Weather <br />
-        {Math.round(temperature * 100) / 100} ℃ - {desc} <br />
+        {Math.round(temperatureCel * 100) / 100} ℃ {desc} <br />
+        {Math.round(temperatureFah * 100) / 100} ℉ {desc} <br />
       </div>
       <div className="app">
         <input type="text" value={city} onChange={(e) => setCity(e.target.value)}/>
         <input type="text" value={country} onChange={(e) => setCountry(e.target.value)} />
-        <button className="btn" onClick={() => { getWeatherInfo(city, country) }}>Submit</button>
+        <button className="btn" onClick={() => { 
+          getWeatherInfo(city, country); }}>Submit</button>
       </div> 
     </form>
   );
 }
 
 export default App;
-
-//  axios({
-//       method: "GET",
-//       url: `http://api.openweathermap.org/data/2.5/weather?q=${city},${country}&APPID=180941f68139fba12f166dc35d9b688b`,
-//     })
-//       .then((response) => {
-//         console.log(response.data.main.temp);
-//         // Kelvin to Fahrenheit
-//         // setTemperature((response.data.main.temp - 273.15) * 1.8 + 32);
-
-//         // Kelvin to Celsius
-//         setTemperature(response.data.main.temp - 273.15);
-//         // console.log(response.data);
-//         setDesc(response.data.weather[0].main);
-//       })
-//       .catch((error) => {
-//         console.log(error);
-//       });

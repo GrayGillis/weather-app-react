@@ -16,6 +16,18 @@
   padding-bottom: 35px;
 }
 
+.header p {
+  font-weight: 600;
+}
+
 .app {
   color: black;
+}
+
+.location-form {
+  padding: 50px;
+}
+
+.weather-form {
+  padding: 50px;
 }

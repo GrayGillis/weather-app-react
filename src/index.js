@@ -51,7 +51,7 @@ const ReactWeatherApp = () => {
       </div>
       <br />
       <div className="main-div">
-        <div>
+        <div className="date-weather">
           {new Date().toLocaleString()}
           <br />
           {city} Weather
@@ -63,7 +63,7 @@ const ReactWeatherApp = () => {
         <br />
         <input type="text" value={city} onChange={(e) => setCity(e.target.value)} />
         <input type="text" value={country} onChange={(e) => setCountry(e.target.value)} />
-        <button onClick={() => { getWeatherInfo(city, country) }}> Submit </button>
+        <button className="btn" onClick={() => { getWeatherInfo(city, country) }}> Submit </button>
       </div>
     </>
   );

@@ -37,10 +37,17 @@ body {
   background-color: #226ba3;
   font-size: 30px;
   color: #fff;
+  margin: 2px 75px;
+  border-radius: 10px;
+  padding-bottom: 10px;
 }
 
 .main-div {
   background-color: #94e5ff;
   font-size: 25px;
   color: #000;
+  margin: 2px 75px;
+  border-radius: 10px;
+  padding-bottom: 10px;
+  padding-top: 10px;
 }

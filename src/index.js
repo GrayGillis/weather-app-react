@@ -33,7 +33,7 @@ const ReactWeatherApp = () => {
   }
 
   return (
-  <>
+    <>
       <div className="header-div">
         <Header />
       </div>

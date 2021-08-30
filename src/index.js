@@ -22,7 +22,6 @@ const ReactWeatherApp = () => {
       url: `${api.url}weather?q=${city},${country}&APPID=${api.key}`,
     })
       .then((res) => {
-        console.log(res.data.main.temp);
         setTemperatureFah((res.data.main.temp - 273.15) * 1.8 + 32);
         setTemperatureCel(res.data.main.temp - 273.15);
         setDescription(res.data.weather[0].main);

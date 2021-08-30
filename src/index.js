@@ -28,7 +28,7 @@ const ReactWeatherApp = () => {
         setDescription(res.data.weather[0].main);
       })
       .catch((error) => {
-        console.log(error);
+        alert("The destination you entered is not found in the system, please enter a new destination");
       });
   }
 
@@ -40,9 +40,9 @@ const ReactWeatherApp = () => {
       <br />
       <div className="main-div">
         <div className="date-weather">
-          {new Date().toLocaleString()}
+          The current date and time here is: {new Date().toLocaleString()}
           <br />
-          {city} Weather
+          The current weather temperature and description for {city}, {country} is:
           <br />
           {Math.round(temperatureCel * 100) / 100} ℃ <br />
           {Math.round(temperatureFah * 100) / 100} ℉ <br />

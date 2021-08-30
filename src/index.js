@@ -28,7 +28,7 @@ const ReactWeatherApp = () => {
         setDescription(res.data.weather[0].main);
       })
       .catch((error) => {
-        alert("The destination you entered is not found in the system, please enter a new destination");
+        alert("The destination you entered is not found in the system, please enter a new destination. \n\n Thank you!");
       });
   }
 
@@ -58,14 +58,11 @@ const ReactWeatherApp = () => {
           <tr>
             <td><input type="text" value={city} onChange={(e) => setCity(e.target.value)} /></td>
             <td><input type="text" value={country} onChange={(e) => setCountry(e.target.value)} /></td>
+            <td>
+              <button className="btn" onClick={() => { getWeatherInfo(city, country) }}> Submit </button>
+            </td>
           </tr>
         </table>
-
-        {/* <label>City</label>
-        <input type="text" value={city} onChange={(e) => setCity(e.target.value)} />
-        <label>Country</label>
-        <input type="text" value={country} onChange={(e) => setCountry(e.target.value)} /> */}
-        <button className="btn" onClick={() => { getWeatherInfo(city, country) }}> Submit </button>
       </div>
     </>
   );

@@ -49,8 +49,22 @@ const ReactWeatherApp = () => {
           {description}
         </div>
         <br />
+        
+        <table className="finalResult">
+          <tr>
+            <td>City</td>
+            <td>Country</td>
+          </tr>
+          <tr>
+            <td><input type="text" value={city} onChange={(e) => setCity(e.target.value)} /></td>
+            <td><input type="text" value={country} onChange={(e) => setCountry(e.target.value)} /></td>
+          </tr>
+        </table>
+
+        {/* <label>City</label>
         <input type="text" value={city} onChange={(e) => setCity(e.target.value)} />
-        <input type="text" value={country} onChange={(e) => setCountry(e.target.value)} />
+        <label>Country</label>
+        <input type="text" value={country} onChange={(e) => setCountry(e.target.value)} /> */}
         <button className="btn" onClick={() => { getWeatherInfo(city, country) }}> Submit </button>
       </div>
     </>

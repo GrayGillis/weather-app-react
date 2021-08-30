@@ -51,3 +51,8 @@ body {
   padding-bottom: 10px;
   padding-top: 10px;
 }
+
+.finalResult {
+  display: inline-block;
+  text-align: center;
+}
